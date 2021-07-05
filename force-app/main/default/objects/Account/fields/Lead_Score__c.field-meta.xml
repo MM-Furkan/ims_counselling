@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>(Lead_Source1__r.Lead_Score__c) + (IF ( ISBLANK(Waiver_Code__c) , 0, 5)) + 
+(IF ( ISBLANK(Walk_In_scheduled_Date__c) , 0, 5)) +  
+(IF ( ISPICKVAL(When_is_Student_Seeking__c, &quot;Immediate&quot;), 5, 0))+ 
+(IF ( ISPICKVAL(When_is_Student_Seeking__c, &quot;1 Week&quot;), 4, 0)) +
+(IF ( ISPICKVAL(When_is_Student_Seeking__c, &quot;1 Month&quot;), 3, 0)) +
+(IF ( ISPICKVAL(When_is_Student_Seeking__c, &quot;3 Months&quot;), 2, 0)) +
+(IF ( ISPICKVAL(When_is_Student_Seeking__c, &quot;5 Months&quot;), 1, 0)) +
+(IF ( ISPICKVAL(When_is_Student_Seeking__c, &quot;Not Sure&quot;), 0, 0))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Lead Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

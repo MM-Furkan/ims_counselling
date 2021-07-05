@@ -1,0 +1,2 @@
+<apex:page controller="sendStudentForEnrollment" action="{!sendEnrollData}">
+</apex:page>

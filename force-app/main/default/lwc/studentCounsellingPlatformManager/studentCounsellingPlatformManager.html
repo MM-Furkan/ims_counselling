@@ -1,0 +1,99 @@
+<template>
+    <lightning-card>
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item size="1" style="text-align: center;">
+                <lightning-button variant="brand" label="Previous" title="Click to Start the counselling"
+                                onclick={previousStep} class="slds-m-horizontal_x-small"></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item size="10">
+                <lightning-progress-indicator current-step={stepValue} type="path" variant="base">
+                    <lightning-progress-step label="Profile Discovery" value="step1">
+                    </lightning-progress-step>
+                    <lightning-progress-step label="Career Identification Step 1" value="step2">
+                    </lightning-progress-step>
+                    <lightning-progress-step label="Career Identification Step 2" value="step3">
+                    </lightning-progress-step>
+                    <lightning-progress-step label="Career Identification Step 3" value="step4">
+                    </lightning-progress-step>
+                    <lightning-progress-step label="Career Identification Step 4" value="step5">
+                    </lightning-progress-step>
+                    <lightning-progress-step label="Career Identification Step 5" value="step6">
+                    </lightning-progress-step>
+                    <lightning-progress-step label="Path to Achieve With IMS" value="step7">
+                    </lightning-progress-step>
+                </lightning-progress-indicator>
+            </lightning-layout-item>
+            <lightning-layout-item size="1" style="text-align: center;">
+                <lightning-button variant="brand" label="Next" title="Click to Start the counselling"
+                    onclick={nextStep} class="slds-m-horizontal_x-small">
+                </lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+    <lightning-layout multiple-rows="true" class="step1">
+        <lightning-layout-item if:false={Profile_Discovery_id} class="slds-p-around_small" size="4">
+        </lightning-layout-item>
+        <lightning-layout-item class="slds-p-around_small" size={firsComponentSize}>
+            <div class="custom-slds-box">
+                <lightning-card title="Select Student" variant="narrow" icon-name="standard:account">
+                    <lightning-layout multiple-rows="true">
+                        <lightning-layout-item class="slds-p-horizontal_small" size="12">
+                            <c-lookup lookup-label="" object-api-name="account" icon-name="standard:account"
+                                onrecordselection={onAccountSelection}></c-lookup>
+                        </lightning-layout-item>
+                        <lightning-layout-item class="slds-p-around_small" size="12">
+                            <div class="slds-m-around_medium slds-align_absolute-center">
+                                <img src={imsStartImageURL} style="width: 215px;">
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item class="slds-p-horizontal_small" size="6">
+                            <c-lookup lookup-label="Select Center" object-api-name="Centre__c"
+                                icon-name="standard:employee_organization" onrecordselection={onCenterSelection}>
+                            </c-lookup>
+                        </lightning-layout-item>
+                        <lightning-layout-item class="slds-p-horizontal_small" size="6">
+                            <c-lookup lookup-label="Select Product" object-api-name="Program__c"
+                                icon-name="standard:education" onrecordselection={onProductSelection}></c-lookup>
+                        </lightning-layout-item>
+                        <lightning-layout-item class="slds-p-around_small slds-align_absolute-center" size="12">
+                            <lightning-button variant="brand" label="Start" title="Click to Start the counselling"
+                                onclick={handleStartClick} class="slds-m-horizontal_x-small"></lightning-button>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-card>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item if:true={Profile_Discovery_id} class="slds-p-around_small" size="3">
+            <div class="custom-slds-box">
+                <c-academic-profile record-id={Profile_Discovery_id} object-api-name="Account"
+                    card-title="Academic Profile" icon-name="standard:account" field-array=""></c-academic-profile>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item if:true={Profile_Discovery_id} class="slds-p-around_small" size="3">
+            <div class="custom-slds-box-half">
+                <c-intrest-and-hobbies profile-discovery-record-id={Profile_Discovery_id} object-api-name="Account"
+                    card-title="Interest &amp; Hobbies" icon-name="standard:account" field-array="">
+                </c-intrest-and-hobbies>
+            </div>
+            <div class="custom-slds-box-half" style="margin-top: 5px;">
+                <c-achivements profile-discovery-record-id={Profile_Discovery_id} object-api-name="Account"
+                    card-title="Achievements" icon-name="standard:account" field-array=""></c-achivements>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item if:true={Profile_Discovery_id} class="slds-p-around_small" size="3">
+            <c-aspiration record-id={Profile_Discovery_id} object-api-name="Account" card-title="Aspiration"
+                icon-name="standard:account" field-array=""></c-aspiration>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout multiple-rows="true" class="step2 slds-hide">
+        <lightning-layout-item if:true={Profile_Discovery_id} class="slds-p-around_small" size="8">
+            <c-iframe></c-iframe>
+        </lightning-layout-item>
+        <lightning-layout-item if:true={Profile_Discovery_id} class="slds-p-around_small" size="4">
+            <c-video-and-presentation></c-video-and-presentation>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout multiple-rows="true" class="step3 slds-hide">
+        Step3
+    </lightning-layout>
+</template>

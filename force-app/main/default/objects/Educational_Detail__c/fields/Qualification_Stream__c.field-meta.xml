@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Qualification_Stream__c</fullName>
+    <externalId>false</externalId>
+    <label>Qualification/Stream</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>EducationType__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+                <label>Not Applicable</label>
+            </value>
+            <value>
+                <fullName>Arts</fullName>
+                <default>false</default>
+                <label>Arts</label>
+            </value>
+            <value>
+                <fullName>Science</fullName>
+                <default>false</default>
+                <label>Science</label>
+            </value>
+            <value>
+                <fullName>Commerce</fullName>
+                <default>false</default>
+                <label>Commerce</label>
+            </value>
+            <value>
+                <fullName>Agriculture/Fisheries/Dairy Technology</fullName>
+                <default>false</default>
+                <label>Agriculture/Fisheries/Dairy Technology</label>
+            </value>
+            <value>
+                <fullName>Allied Medical Courses</fullName>
+                <default>false</default>
+                <label>Allied Medical Courses</label>
+            </value>
+            <value>
+                <fullName>Architecture</fullName>
+                <default>false</default>
+                <label>Architecture</label>
+            </value>
+            <value>
+                <fullName>Arts/Applied Arts/Fine Arts</fullName>
+                <default>false</default>
+                <label>Arts/Applied Arts/Fine Arts</label>
+            </value>
+            <value>
+                <fullName>Ayurvedic/Homeopathic/Unani</fullName>
+                <default>false</default>
+                <label>Ayurvedic/Homeopathic/Unani</label>
+            </value>
+            <value>
+                <fullName>Computers/IT</fullName>
+                <default>false</default>
+                <label>Computers/IT</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Hotel/Hospitality/Travel/Tourism</fullName>
+                <default>false</default>
+                <label>Hotel/Hospitality/Travel/Tourism</label>
+            </value>
+            <value>
+                <fullName>Law</fullName>
+                <default>false</default>
+                <label>Law</label>
+            </value>
+            <value>
+                <fullName>Management</fullName>
+                <default>false</default>
+                <label>Management</label>
+            </value>
+            <value>
+                <fullName>Mass Communication/Journalism</fullName>
+                <default>false</default>
+                <label>Mass Communication/Journalism</label>
+            </value>
+            <value>
+                <fullName>Medical/Dental/Other Medical Courses</fullName>
+                <default>false</default>
+                <label>Medical/Dental/Other Medical Courses</label>
+            </value>
+            <value>
+                <fullName>Pharmacy</fullName>
+                <default>false</default>
+                <label>Pharmacy</label>
+            </value>
+            <value>
+                <fullName>Science/Home Science</fullName>
+                <default>false</default>
+                <label>Science/Home Science</label>
+            </value>
+            <value>
+                <fullName>Chartered Accountancy (CA)</fullName>
+                <default>false</default>
+                <label>Chartered Accountancy (CA)</label>
+            </value>
+            <value>
+                <fullName>Cost and Works Accountancy (ICWA)</fullName>
+                <default>false</default>
+                <label>Cost and Works Accountancy (ICWA)</label>
+            </value>
+            <value>
+                <fullName>Company Secretaryship (CS)</fullName>
+                <default>false</default>
+                <label>Company Secretaryship (CS)</label>
+            </value>
+            <value>
+                <fullName>Engineering/Technology</fullName>
+                <default>false</default>
+                <label>Engineering/Technology</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>SSC (Xth)</controllingFieldValue>
+            <valueName>Not Applicable</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>HSC (XIIth)</controllingFieldValue>
+            <valueName>Arts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>HSC (XIIth)</controllingFieldValue>
+            <valueName>Science</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>HSC (XIIth)</controllingFieldValue>
+            <controllingFieldValue>Graduation</controllingFieldValue>
+            <controllingFieldValue>Post-graduation</controllingFieldValue>
+            <valueName>Commerce</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Graduation</controllingFieldValue>
+            <controllingFieldValue>Post-graduation</controllingFieldValue>
+            <valueName>Agriculture/Fisheries/Dairy Technology</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Graduation</controllingFieldValue>
+            <controllingFieldValue>Post-graduation</controllingFieldValue>
+            <valueName>Allied Medical Courses</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Graduation</controllingFieldValue>
+            <controllingFieldValue>Post-graduation</controllingFieldValue>
+            <valueName>Architecture</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Graduation</controllingFieldValue>
+            <controllingFieldValue>Post-graduation</controllingFieldValue>
+            <valueName>Arts/Applied Arts/Fine Arts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Graduation</controllingFieldValue>
+            <controllingFieldValue>Post-graduation</controllingFieldValue>
+            <valueName>Ayurvedic/Homeopathic/Unani</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Graduation</controllingFieldValue>
+            <controllingFieldValue>Post-graduation</controllingFieldValue>
+            <valueName>Computers/IT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Graduation</controllingFieldValue>
+            <controllingFieldValue>Post-graduation</controllingFieldValue>
+            <valueName>Education</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Graduation</controllingFieldValue>
+            <controllingFieldValue>Post-graduation</controllingFieldValue>
+            <valueName>Hotel/Hospitality/Travel/Tourism</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Graduation</controllingFieldValue>
+            <controllingFieldValue>Post-graduation</controllingFieldValue>
+            <valueName>Law</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Graduation</controllingFieldValue>
+            <controllingFieldValue>Post-graduation</controllingFieldValue>
+            <controllingFieldValue>Professional Certification</controllingFieldValue>
+            <controllingFieldValue>Diploma</controllingFieldValue>
+            <valueName>Management</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Graduation</controllingFieldValue>
+            <controllingFieldValue>Post-graduation</controllingFieldValue>
+            <valueName>Mass Communication/Journalism</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Graduation</controllingFieldValue>
+            <controllingFieldValue>Post-graduation</controllingFieldValue>
+            <valueName>Medical/Dental/Other Medical Courses</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Graduation</controllingFieldValue>
+            <controllingFieldValue>Post-graduation</controllingFieldValue>
+            <valueName>Pharmacy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Graduation</controllingFieldValue>
+            <controllingFieldValue>Post-graduation</controllingFieldValue>
+            <valueName>Science/Home Science</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Professional Certification</controllingFieldValue>
+            <valueName>Chartered Accountancy (CA)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Professional Certification</controllingFieldValue>
+            <valueName>Cost and Works Accountancy (ICWA)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Professional Certification</controllingFieldValue>
+            <valueName>Company Secretaryship (CS)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Professional Certification</controllingFieldValue>
+            <controllingFieldValue>Diploma</controllingFieldValue>
+            <valueName>Engineering/Technology</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validation_on_Referred_by_Student</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(TEXT(Referred_By__c)=&apos;Students&apos;,ISBLANK(Student_Referral_Name__c))</errorConditionFormula>
+    <errorDisplayField>Student_Referral_Name__c</errorDisplayField>
+    <errorMessage>Enter Student Name.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,134 @@
+<template>
+    <lightning-card title={cardTitle} variant="narrow" icon-name={iconName}>
+        <lightning-spinner if:true={showSpinner} alternative-text="Loading" size="small"></lightning-spinner>
+        <lightning-button label="Edit" slot="actions" onclick={openModal}></lightning-button>
+        <div class="box-wrapper">
+            <lightning-record-view-form record-id={academicProfileRecordId} object-api-name="Academic_Profile__c">
+                <lightning-messages>
+                </lightning-messages>
+                <lightning-layout multiple-rows="true">
+                    <lightning-layout-item size="12">
+                        <div style="padding: 5px !important;" class="slds-box">
+                            <lightning-output-field field-name="X0th_Score__c">
+                            </lightning-output-field>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12">
+                        <div style="padding: 5px !important;" class="slds-box">
+                            <lightning-output-field field-name="Graduation__c">
+                            </lightning-output-field>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12">
+                        <div style="padding: 5px !important;" class="slds-box">
+                            <lightning-output-field field-name="X2th_Score__c">
+                            </lightning-output-field>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12">
+                        <div style="padding: 5px !important;" class="slds-box">
+                            <lightning-output-field field-name="Category__c">
+                            </lightning-output-field>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12">
+                        <div style="padding: 5px !important;" class="slds-box">
+                            <lightning-output-field field-name="Work_Experience__c">
+                            </lightning-output-field>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12">
+                        <div style="padding: 5px !important;" class="slds-box">
+                            <lightning-output-field field-name="Company__c">
+                            </lightning-output-field>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12">
+                        <div style="padding: 5px !important;" class="slds-box">
+                            <lightning-output-field field-name="College__c">
+                            </lightning-output-field>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12">
+                        <div style="padding: 5px !important;" class="slds-box">
+                            <lightning-output-field field-name="Stream__c" class="custom-picklist">
+                            </lightning-output-field>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-record-view-form>
+        </div>
+    </lightning-card>
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small">
+                        </lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Academic Profile Eidt</h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning-record-edit-form record-id={academicProfileRecordId} object-api-name="Academic_Profile__c" onsuccess={handleSuccess}>
+                        <lightning-messages>
+                        </lightning-messages>
+                        <lightning-layout multiple-rows="true">
+                            <lightning-layout-item size="6">
+                                    <lightning-input-field field-name="Student__c">
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="Profile_Discovery__c">
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="Name">
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="X0th_Score__c">
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="X0th_Score_CGPA__c">
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="X0th_Board__c">
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="X2th_Score__c">
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="X2th_Score_CGPA__c">
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="X2th_Board__c">
+                                    </lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6">
+                                    <lightning-input-field field-name="Graduation__c">
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="Graduation_CGPA__c">
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="Graduation_Board__c">
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="Work_Experience__c">
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="Category__c">
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="Category__c">
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="College__c">
+                                    </lightning-input-field>
+                                    <lightning-input-field field-name="Stream__c">
+                                    </lightning-input-field>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </lightning-record-edit-form>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">OK</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

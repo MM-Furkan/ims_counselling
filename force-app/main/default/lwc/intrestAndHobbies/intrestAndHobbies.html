@@ -1,0 +1,67 @@
+<template>
+    <lightning-card title={cardTitle} variant="narrow" icon-name={iconName}>
+        <lightning-spinner if:true={showSpinner} alternative-text="Loading" size="small"></lightning-spinner>
+        <lightning-button label="Add" slot="actions" onclick={openModal}></lightning-button>
+        <div class="box-wrapper">
+            <template if:true={listHobbies} for:each={listHobbies} for:item="hobbies" for:index="index"
+                key={hobbies.Id}>
+                <div style="padding: 5px !important;" class="slds-box" key={hobbies.Id}>
+                    <div class="slds-grid slds-gutters" key={hobbies.Id}>
+                        <div class="slds-col slds-size_2-of-3">
+                            <span class="slds-badge">{hobbies.Interest_And_Hobbies__c}</span>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3" style="text-align: center;">
+                            <lightning-icon icon-name="utility:edit" size="xx-small" data-id={hobbies.Id}
+                                onclick={openModal} alternative-text="edit" title="edit"></lightning-icon>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+    <!--Use template if:true to display/hide popup based on isModalOpen value-->
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small">
+                        </lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{modaPopupTitle}</h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning-record-edit-form record-id={hobbiesAndInterestrecordId}
+                        object-api-name="Interest_and_Hobbies__c" onsuccess={handleSuccess}>
+                        <lightning-messages>
+                        </lightning-messages>
+                        <lightning-layout multiple-rows="true">
+                            <lightning-layout-item size="6">
+                                <lightning-input-field field-name="Profile_Discovery__c"
+                                    value={profileDiscoveryRecordId}>
+                                </lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="6">
+                                <lightning-input-field field-name="Interest_And_Hobbies__c">
+                                </lightning-input-field>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </lightning-record-edit-form>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">OK</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

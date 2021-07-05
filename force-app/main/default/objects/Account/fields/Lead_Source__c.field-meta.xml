@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Source__c</fullName>
+    <externalId>false</externalId>
+    <label>Lead Source.</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Lead_Mode_PickList__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Justdial</fullName>
+                <default>false</default>
+                <label>Justdial</label>
+            </value>
+            <value>
+                <fullName>Sulekha</fullName>
+                <default>false</default>
+                <label>Sulekha</label>
+            </value>
+            <value>
+                <fullName>Urbanpro</fullName>
+                <default>false</default>
+                <label>Urbanpro</label>
+            </value>
+            <value>
+                <fullName>Shiksha</fullName>
+                <default>false</default>
+                <label>Shiksha</label>
+            </value>
+            <value>
+                <fullName>Studysid</fullName>
+                <default>false</default>
+                <label>Studysid</label>
+            </value>
+            <value>
+                <fullName>Google Adwords</fullName>
+                <default>false</default>
+                <label>Google Adwords</label>
+            </value>
+            <value>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+                <label>Facebook</label>
+            </value>
+            <value>
+                <fullName>Exhibitions</fullName>
+                <default>false</default>
+                <label>Exhibitions</label>
+            </value>
+            <value>
+                <fullName>College Seminars</fullName>
+                <default>false</default>
+                <label>College Seminars</label>
+            </value>
+            <value>
+                <fullName>Whatsapp</fullName>
+                <default>false</default>
+                <label>Whatsapp</label>
+            </value>
+            <value>
+                <fullName>Tollfree</fullName>
+                <default>false</default>
+                <label>Tollfree</label>
+            </value>
+            <value>
+                <fullName>Email Enquiry</fullName>
+                <default>false</default>
+                <label>Email Enquiry</label>
+            </value>
+            <value>
+                <fullName>Chatbot</fullName>
+                <default>false</default>
+                <label>Chatbot</label>
+            </value>
+            <value>
+                <fullName>Education Fairs</fullName>
+                <default>false</default>
+                <label>Education Fairs</label>
+            </value>
+            <value>
+                <fullName>IMS Events</fullName>
+                <default>false</default>
+                <label>IMS Events</label>
+            </value>
+            <value>
+                <fullName>Walk-In</fullName>
+                <default>false</default>
+                <label>Walk-In</label>
+            </value>
+            <value>
+                <fullName>Organic</fullName>
+                <default>false</default>
+                <label>Organic</label>
+            </value>
+            <value>
+                <fullName>Classroom</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Classroom</label>
+            </value>
+            <value>
+                <fullName>Comprehensive</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Comprehensive</label>
+            </value>
+            <value>
+                <fullName>Correspondence</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Correspondence</label>
+            </value>
+            <value>
+                <fullName>Test Series Online</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Test Series Online</label>
+            </value>
+            <value>
+                <fullName>Website queries</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Website queries</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <valueName>College Seminars</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <valueName>Education Fairs</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Events</controllingFieldValue>
+            <valueName>IMS Events</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Telephonic</controllingFieldValue>
+            <valueName>Tollfree</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Email</controllingFieldValue>
+            <valueName>Email Enquiry</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

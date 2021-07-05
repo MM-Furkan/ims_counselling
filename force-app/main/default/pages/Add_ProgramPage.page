@@ -1,0 +1,175 @@
+<apex:page controller="Add_Programs" sidebar="false" showHeader="false" docType="html-5.0" readOnly="false" >
+
+    <html>
+
+    <head>
+
+        <apex:slds />
+        <style>
+            .capitalized {
+                text-transform: capitalize;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <apex:form id="form" >
+            <div style="width=90%">
+                         
+                <apex:actionFunction name="Save" action="{!Save}" reRender="sv1"  />
+                <div class="slds-scope" id="tab1" >
+                    <div>
+                        <p class="slds-text-title_caps" style="text-align:center;font-size:20px"> Add Programs</p><br/>
+                    </div>
+					
+               
+                    <table class="slds-table slds-table_bordered slds-scrollable--x slds-table_col-bordered slds-table_resizable-cols"
+                        style="width:100%;table-layout:fixed"  >
+                        <tr>
+                           <th style="background-color:#ADE1EC" class="slds-text-align_center ">Program</th>
+                            <th style="background-color:#ADE1EC" class="slds-text-align_center ">Centre</th>
+                            <th style="background-color:#ADE1EC" class="slds-text-align_center ">Variants</th>
+                            <th style="background-color:#ADE1EC" class="slds-text-align_center ">Mode</th> 
+                            <th style="background-color:#ADE1EC" class="slds-text-align_center ">Year</th>
+                            <th style="background-color:#ADE1EC" class="slds-text-align_center ">Total Fees</th>
+                            <th style="background-color:#ADE1EC" class="slds-text-align_center ">Action</th>
+                        </tr>
+                        <tr>
+                              <td>
+                                <div class="slds-select_container">
+                                    <apex:selectList value="{!selectProgId}" multiselect="false" styleClass="slds-select slds-form-element__control"
+                                        required="true" size="1">
+                                        <apex:actionSupport event="onchange" rerender="fm1" />
+                                        <apex:selectOptions value="{!ProgramIdList}" />
+                                    </apex:selectList>
+                                </div>
+                            </td>
+                             <td>
+                                <apex:outputPanel id="frm3">
+                                    <div class="slds-select_container">
+                                        <apex:selectList value="{!selectCentId}" multiselect="false" styleClass="slds-select slds-form-element__control"
+                                            required="true" size="1">
+                                            <apex:actionSupport event="onchange" rerender="form" />
+                                            <apex:selectOptions value="{!CenterList}" />
+                                        </apex:selectList>
+                                    </div>
+                                </apex:outputPanel> 
+                            </td>
+                           
+                            <td>
+                                <apex:outputPanel id="fm1">
+                                    <div class="slds-select_container">
+                                        <apex:selectList value="{!ProgVarId}" multiselect="false" styleClass="slds-select slds-form-element__control"
+                                            required="true" size="1">
+                                            <apex:actionSupport event="onchange" action="{!getVaMode}" rerender="form" />
+                                            <apex:selectOptions value="{!VariantList}" />
+                                        </apex:selectList>
+                                    </div>
+                                </apex:outputPanel>
+                            </td>
+                         <!--   <td>
+                                <apex:outputPanel id="fm2">
+                                    <div class="slds-select_container">
+                                        <apex:selectList value="{!selectModeId}" multiselect="false" styleClass="slds-select slds-form-element__control"
+                                            required="true" size="1">
+                                            <apex:actionSupport event="onchange" rerender="fm3" />
+                                            <apex:selectOptions value="{!ModeList}" />
+                                        </apex:selectList>
+                                    </div>
+                                </apex:outputPanel>
+                            </td> -->
+                            
+                            <td class="slds-text-align_center">
+                                <apex:outputText styleClass="slds-input"  value="{!ModeName}" />
+                            </td>
+                            <td class="slds-text-align_center">
+                                <apex:inputText styleClass="slds-input" value="{!Yrs}" />
+                            </td>
+                             <td class="slds-text-align_center">
+                                <apex:outputText styleClass="slds-input"  value="{!Fees}" />
+                            </td>
+                            <td class="slds-text-align_center">
+                                <apex:commandLink action="{!Add}" value="Add" styleClass="slds-button slds-button__icon_right slds-button--brand" />
+                                
+                            </td>
+                        </tr>
+                    </table>
+                    
+                  
+                        
+                </div>
+
+                <!--    <br/>-->
+
+                <!---------------2nd Table ----------->
+             <div class="slds-scope" id="tab2">
+                    <div>
+                        <p class="slds-text-title_caps" style="text-align:center;font-size:20px"> Selected Programs</p><br/>
+                    </div>
+
+                    <table class="slds-table slds-table_bordered slds-scrollable--x slds-table_col-bordered slds-table_resizable-cols"
+                        style="width:100%" id="tab1">
+                        <tr>
+                             <th style="background-color:#ADE1EC" class="slds-text-align_center ">Program</th>
+                            <th style="background-color:#ADE1EC" class="slds-text-align_center ">Centre</th>
+                            <th style="background-color:#ADE1EC" class="slds-text-align_center ">Variants</th>
+                            <th style="background-color:#ADE1EC" class="slds-text-align_center ">Mode</th>
+                            <th style="background-color:#ADE1EC" class="slds-text-align_center ">Year</th>
+                            <th style="background-color:#ADE1EC" class="slds-text-align_center ">Total Fees</th>
+                            <th style="background-color:#ADE1EC" class="slds-text-align_center ">Action</th>
+                        </tr>
+                        <apex:variable value="{!0}" var="rowNum" />
+                        <apex:repeat value="{!progadmList}" var="si">
+                            <tr>
+                                <td class="slds-text-align_center">
+                                    <apex:outputField styleClass="slds-input" style="max-width:325px" value="{!si.Program__c}"></apex:outputField>
+                                </td>
+                                <td class="slds-text-align_center">
+                                    <apex:outputField styleClass="slds-input" style="max-width:325px" value="{!si.Centre__c}"></apex:outputField>
+                                </td>
+                                <td class="slds-text-align_center">
+                                    <apex:outputField styleClass="slds-input" style="max-width:325px" value="{!si.Variant__c}"></apex:outputField> 
+                                </td>
+                                     <td class="slds-text-align_center">
+                                         <apex:outputText styleClass="slds-input" style="max-width:325px" value="{!si.Mode__c}" />
+                                </td> 
+                                
+                                <td class="slds-text-align_center">
+                                    <apex:outputText styleClass="slds-input" style="max-width:325px" value="{!si.Exam_Year__c}" />
+                                </td>
+                                <td class="slds-text-align_center">
+                                    <apex:outputText styleClass="slds-input" style="max-width:325px" value="{!si.Total_Fees__c}" />
+                                </td>
+                                <td class="slds-text-align_center">
+                                    <apex:commandLink action="{!Del}" styleClass="slds-button slds-button__icon_right slds-button--destructive">
+                                        <apex:param name="rowNum" assignTo="{!row}" value="{!rowNum}" />Delete
+                                    </apex:commandLink>
+                                </td>
+                            </tr>
+                            <apex:variable value="{!rowNum + 1}" var="rowNum" />
+                        </apex:repeat>
+
+                    </table>
+                </div>
+                
+            </div>
+        </apex:form>
+       
+        <!--    <div align="right" style="margin-top: -160px;    margin-right: 105px">-->
+        <!--        <apex:commandLink action="{!Add}" value="Add" styleClass="slds-button slds-button__icon_right slds-button--brand" reRender="form" />-->
+        <!--    </div>-->
+         <apex:form >
+        <div align="center">
+                    <apex:commandButton action="{!Save}" value="Save " styleClass="slds-button slds-button__icon_right slds-button--brand slds-m-top--medium"
+                    />
+                    <apex:commandButton action="{!Cancel}" value="Cancel" styleClass="slds-button slds-button__icon_right slds-button--destructive slds-m-top--medium"
+                    />
+                </div>
+
+        </apex:form>
+    </body>
+
+    </html>
+
+</apex:page>

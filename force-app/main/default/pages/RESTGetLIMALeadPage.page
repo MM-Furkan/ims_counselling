@@ -1,0 +1,6 @@
+<apex:page controller="RESTGetLIMALead" action="{!RESTGetLIMALeadAction}">
+    <apex:form >
+        <apex:messages />
+        
+    </apex:form>
+</apex:page>

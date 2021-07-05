@@ -1,0 +1,74 @@
+.thumbnail{
+    display: inline-block;
+    height: 380px;
+    overflow:auto;
+}
+/* width */
+ .thumbnail::-webkit-scrollbar {
+    /* display: none !important; */
+    width:5px;
+    background:#fff;
+}
+  /* Track */
+  .thumbnail::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  .thumbnail::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  .thumbnail::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+.thumbnail {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
+}
+
+.thumbnail-list{
+    display: inline-block;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px;
+    width: 100%;
+}
+
+.thumbnail-list a{
+    cursor: pointer;
+    text-decoration: none;
+}
+.thumbnail-list a:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.thumbnail-list img.thumb-img{
+    width:25%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    vertical-align:top;
+}
+
+.thumbnail-list .thumb-title{
+    display: inline-block;
+    width:70%;
+    margin-left: 10px;
+}
+
+.thumbnail-list .thumb-title h4{
+    font-size: 12px;
+    font-weight: bolder;
+    color: #232323;
+}
+
+.thumbnail-list .thumb-title p{
+    font-size: 12px;
+    font-weight: normal;
+    color: #232323;
+    /* height:30px; */
+    overflow:hidden;
+}

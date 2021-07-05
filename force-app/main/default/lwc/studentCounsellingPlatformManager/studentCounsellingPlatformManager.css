@@ -1,0 +1,43 @@
+.slds-card{
+    background-color: #fff;
+}
+/* .THIS .lightning-textarea textarea { min-height: 250px !important; } */
+/* .custoArea{
+    background-color:#333;
+} */
+
+/* .custoArea .textarea-container{
+    background-color:#ccc;
+    height: 140px;
+}
+ .custoArea .textarea-container .slds-textarea{
+     height:200px;
+ } */
+ /* :host textarea{
+    width: 100%;
+    min-height: 300px;
+  } */
+  .slds-progress{
+      max-width: 100% !important;
+  }
+.custom-slds-box{
+    height: 470px !important; 
+    overflow: hidden !important;
+}
+.custom-slds-box-half{
+    height: 232.5px !important; 
+    overflow: hidden !important;
+}
+  /* Hide scrollbar for Chrome, Safari and Opera */
+.custom-slds-box::-webkit-scrollbar {
+    display: none !important;
+}
+.custom-slds-box-half::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.custom-slds-box-half {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
+}

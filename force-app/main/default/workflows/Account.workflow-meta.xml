@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Reason_for_Lost</fullName>
+        <field>Lead_Lost_Reason__c</field>
+        <name>Reason for Lost</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Select_lost_reason_2</fullName>
+        <field>Lead_Lost_Reason__c</field>
+        <name>Select lost reason 2</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>UPDATE_STAGE</fullName>
+        <field>Lead_Stage__c</field>
+        <literalValue>Enrolled</literalValue>
+        <name>UPDATE STAGE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Owner</fullName>
+        <field>OwnerId</field>
+        <lookupValue>mathew.fernandes@imsindia.com</lookupValue>
+        <lookupValueType>User</lookupValueType>
+        <name>Update Owner</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Reason</fullName>
+        <field>Closed_Lost_Reason__c</field>
+        <formula>&apos;Closed Lost due to no activity from past 6 months&apos;</formula>
+        <name>Update Reason</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Status_PARTIAL_ENROLL</fullName>
+        <field>Lead_Stage__c</field>
+        <literalValue>Partially Enrolled</literalValue>
+        <name>Update Status PARTIAL ENROLL</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_To_Closed_Lost</fullName>
+        <field>Lead_Stage__c</field>
+        <literalValue>Closed Lost</literalValue>
+        <name>Update To Closed Lost</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_To_Read_Only</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Student_Account_Person_Read_Only</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Update To Read Only</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_record_Type</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Student_Account_P</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Update record Type</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_status</fullName>
+        <field>Lead_Stage__c</field>
+        <literalValue>Qualified</literalValue>
+        <name>Update status</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>update_as_open</fullName>
+        <field>Lead_Stage__c</field>
+        <literalValue>Open</literalValue>
+        <name>update as open</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Select Lead Lost Reason</fullName>
+        <actions>
+            <name>Reason_for_Lost</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Account.Lead_Stage__c</field>
+            <operation>equals</operation>
+            <value>Closed Lost</value>
+        </criteriaItems>
+        <description>Select Lead Lost Reason</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Owner</fullName>
+        <active>false</active>
+        <formula>Mailing_City__r.Name = &quot;Mumbai&quot;</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Record Type To Person Account</fullName>
+        <actions>
+            <name>Update_record_Type</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Lead_Stage__c</field>
+            <operation>notEqual</operation>
+            <value>Closed Lost</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Record Type To Read Only</fullName>
+        <actions>
+            <name>Update_To_Read_Only</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Lead_Stage__c</field>
+            <operation>equals</operation>
+            <value>Closed Lost</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update To Closed Lost</fullName>
+        <actions>
+            <name>Update_Reason</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_To_Closed_Lost</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( Total_Child_Record__c &gt; 0,
+Total_Child_Record__c = Total_Closed_Lost_No__c )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update as Qualified</fullName>
+        <actions>
+            <name>Update_status</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(
+NOT(ISBLANK(Lead_Source1__c)),
+NOT(ISBLANK(Lead_Mode__c)),
+NOT(ISBLANK(Mailing_City__c)),
+NOT(ISBLANK(Centre__c)),
+NOT(ISBLANK(Program__c))
+)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update stage ENROLL</fullName>
+        <actions>
+            <name>UPDATE_STAGE</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( Total_Child_Record__c &gt; 0,
+				Total_Child_Record__c = Total_Enrolled_no__c )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update stage PARTIALENROLL</fullName>
+        <actions>
+            <name>Update_Status_PARTIAL_ENROLL</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( Total_Child_Record__c &gt; 0, Total_Enrolled_no__c &gt; 0,
+				Total_Child_Record__c &gt; Total_Enrolled_no__c )</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update stage initial</fullName>
+        <actions>
+            <name>update_as_open</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <formula>OR(Total_Child_Record__c = 0, Total_Enrolled_no__c = 0,
+			AND(Total_Child_Record__c = 1 ,   Total_Enrolled_no__c = 0 ))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update web to lead id</fullName>
+        <active>false</active>
+        <formula>OR(NOT(ISBLANK(Web_To_Lead_Mode__c)),
+				NOT(ISBLANK(Web_To_Lead_Medium__c)),		  
+  				NOT(ISBLANK(Web_to_Lead_Source__c)	)
+				
+						)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

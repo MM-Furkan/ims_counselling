@@ -1,0 +1,6 @@
+<apex:page controller="RESTGetIMSPIN" action="{!getImsPin}">
+    <apex:form >
+        <apex:messages />
+        
+    </apex:form>
+</apex:page>

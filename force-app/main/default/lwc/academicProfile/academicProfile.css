@@ -1,0 +1,13 @@
+.slds-dueling-list__options{
+    height: 8rem !important;
+}
+.box-wrapper{
+    height : 412px !important;
+    overflow: scroll !important;
+}
+.box-wrapper::-webkit-scrollbar {
+    display: none !important;
+}
+.slds-box{
+    padding: 5px !important;
+}

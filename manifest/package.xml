@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>*</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ApexComponent</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ApexTestSuite</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>StaticResource</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>StaticResource</name>
+    </types>
+
+    <types>
+        <members>ObjectName.WorkflowRuleName</members>
+        <name>WorkflowRule</name>
+    </types>
+
+    <types>
+        <members>ObjectName.FieldUpdateName</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+
+    <types>
+        <members>ObjectName.EmailAlertName</members>
+        <name>WorkflowAlert</name>
+    </types>
+
+    <types>
+        <members>ObjectName.OutboundMessageName</members>
+        <name>WorkflowOutboundMessage</name>
+    </types>
+
+    <types>
+        <members>ObjectName.TaskName</members>
+        <name>WorkflowTask</name>
+    </types>
+    <types>
+        <members>Common_Settings__c</members>
+        <name>CustomObject</name>
+    </types>
+    
+    <types>
+        <members>*</members>
+        <name>Workflow</name>
+    </types>
+     <types> 
+        <members> AccountContactRelation</members> 
+        <members> Achievement__c</members> 
+        <members> Achievers__c</members> 
+        <members> Activity</members> 
+        <members> Advisor_Information__c</members> 
+        <members> API_log__c</members> 
+        <members> Aspiration__c</members> 
+        <members> Asset</members> 
+        <members> AssetRelationship</members> 
+        <members> AssociatedLocation</members> 
+        <members> AuthorizationForm</members> 
+        <members> AuthorizationFormConsent</members> 
+        <members> AuthorizationFormDataUse</members> 
+        <members> AuthorizationFormText</members> 
+        <members> Campaign</members> 
+        <members> CampaignInfluence</members> 
+        <members> CampaignMember</members> 
+        <members> Career_Identification__c</members> 
+        <members> Case</members> 
+        <members> Category__c</members> 
+        <members> Centre__c</members> 
+        <members> Centre_City__c</members> 
+        <members> Centre_Visit__c</members> 
+        <members> Counselling_Centre__c</members> 
+        <members> Chapters__c</members> 
+        <members> Chatbot_Lead__c</members> 
+        <members> City__c</members> 
+        <members> CommSubscription</members> 
+        <members> CommSubscriptionChannelType</members> 
+        <members> CommSubscriptionConsent</members> 
+        <members> CommSubscriptionTiming</members> 
+        <members> Contact</members> 
+        <members> ContactPointAddress</members> 
+        <members> ContactPointConsent</members> 
+        <members> ContactPointEmail</members> 
+        <members> ContactPointPhone</members> 
+        <members> ContactPointTypeConsent</members> 
+        <members> ContentVersion</members> 
+        <members> Contract</members> 
+        <members> Counselling__c</members> 
+        <members> Counsellor_Information_Mentor__c</members> 
+        <members> Country__c</members> 
+        <members> Course__c</members> 
+        <members> DataUseLegalBasis</members> 
+        <members> DataUsePurpose</members> 
+        <members> DuplicateRecordItem</members> 
+        <members> DuplicateRecordSet</members> 
+        <members> Educational_Detail__c</members> 
+        <members> EmailMessage</members> 
+        <members> EngagementChannelType</members> 
+        <members> Event</members> 
+        <members> Financial_Outstanding__c</members> 
+        <members> How_to_Enroll__c</members> 
+        <members> How_IMS__c</members> 
+        <members> Image</members> 
+        <members> Individual</members> 
+        <members> Institute__c</members> 
+        <members> Interest_and_Hobbies__c</members> 
+        <members> Lead</members> 
+        <members> Lead_Mode__c</members> 
+        <members> Lead_Source__c</members> 
+        <members> ListEmail</members> 
+        <members> Location</members> 
+        <members> LocationTrustMeasure</members> 
+        <members> Macro</members> 
+        <members> Mentors__c</members> 
+        <members> Mode__c</members> 
+        <members> Opportunity</members> 
+        <members> OpportunityContactRole</members> 
+        <members> OpportunityLineItem</members> 
+        <members> Order</members> 
+        <members> OrderItem</members> 
+        <members> Parent_Information__c</members> 
+        <members> PartyConsent</members> 
+        <members> Path_to_Achieve__c</members> 
+        <members> Payment_Status__c</members> 
+        <members> PersonAccount</members> 
+        <members> Pricebook2</members> 
+        <members> PricebookEntry</members> 
+        <members> ProcessException</members> 
+        <members> Product2</members> 
+        <members> Profile_Discovery__c</members> 
+        <members> Program__c</members> 
+        <members> Program_University__c</members> 
+        <members> Program_Achievers__c</members> 
+        <members> Program_Admitted__c</members> 
+        <members> Counselling_Program__c</members> 
+        <members> Career_Identification_Program__c</members> 
+        <members> QuickText</members> 
+        <members> Quote</members> 
+        <members> QuoteLineItem</members> 
+        <members> Recommendation</members> 
+        <members> School__c</members> 
+        <members> Scorecard</members> 
+        <members> ScorecardAssociation</members> 
+        <members> ScorecardMetric</members> 
+        <members> Site_Visit__c</members> 
+        <members> SocialPersona</members> 
+        <members> SocialPost</members> 
+        <members> State__c</members> 
+        <members> Account</members> 
+        <members> Student_Lead_Source__c</members> 
+        <members> Target_Institutes__c</members> 
+        <members> Task</members> 
+        <members> Test__c</members> 
+        <members> Test_to_be_taken__c</members> 
+        <members> University_Board__c</members> 
+        <members> User</members> 
+        <members> UserProvisioningRequest</members> 
+        <members> Variant__c</members> 
+        <members> Video__c</members> 
+        <members> VideoCall</members> 
+        <members> Walk_In_Centre__c</members> 
+        <members> Work_Detail__c</members> 
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Role</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Queue</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Group</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>HomePageLayout</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>PermissionSet</name>
+    </types>
+
+    <types>
+        <members>*</members>
+        <name>QuickAction</name>
+    </types>
+    <version>52.0</version>
+</Package>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Mode_PickList__c</fullName>
+    <externalId>false</externalId>
+    <label>Lead Mode</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Events</fullName>
+                <default>false</default>
+                <label>Event Registration</label>
+            </value>
+            <value>
+                <fullName>Telephonic</fullName>
+                <default>false</default>
+                <label>Telephonic</label>
+            </value>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>Direct_Walkin</fullName>
+                <default>false</default>
+                <label>Direct Walkin</label>
+            </value>
+            <value>
+                <fullName>IMS Website - EF</fullName>
+                <default>false</default>
+                <label>IMS Website - EF</label>
+            </value>
+            <value>
+                <fullName>IMS Website - Chatbot</fullName>
+                <default>false</default>
+                <label>IMS Website - Chatbot</label>
+            </value>
+            <value>
+                <fullName>Landing page</fullName>
+                <default>false</default>
+                <label>Landing page</label>
+            </value>
+            <value>
+                <fullName>Chat</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Chat</label>
+            </value>
+            <value>
+                <fullName>Digital</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Digital</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

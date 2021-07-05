@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validation_on_Account_Name_for_read_only</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF($Profile.Name &lt;&gt; &apos;System Administrator&apos; &amp;&amp; 
+				RecordType.DeveloperName = &apos;Student_Account_Person_Read_Only&apos;
+				,  ISCHANGED( Name ) , false)</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>You can not change this field. Please contact system administrator.</errorMessage>
+</ValidationRule>

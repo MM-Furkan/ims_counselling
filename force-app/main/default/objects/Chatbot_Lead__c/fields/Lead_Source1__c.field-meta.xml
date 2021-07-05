@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Source1__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Lead Source</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Lead_Source__c.Lead_Mode__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Lead_Mode__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Lead_Source__c</referenceTo>
+    <relationshipLabel>Chatbot Leads</relationshipLabel>
+    <relationshipName>Chatbot_Leads</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

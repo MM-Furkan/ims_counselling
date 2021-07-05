@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Undergraduate_programs</fullName>
+    <columns>NAME</columns>
+    <columns>Program_Category__c</columns>
+    <columns>Status__c</columns>
+    <columns>Variant_Name__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Program_Category__c</field>
+        <operation>equals</operation>
+        <value>UG</value>
+    </filters>
+    <label>Undergraduate programs</label>
+</ListView>

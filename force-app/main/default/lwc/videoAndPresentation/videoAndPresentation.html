@@ -1,0 +1,50 @@
+<template>
+    <lightning-card>
+        <lightning-tabset>
+            <lightning-tab label="Videos">
+                <lightning-accordion active-section-name="A" class="thumbnail">
+                    <template if:true={videoContent} for:each={videoContent} for:item="VC" for:index="index" key={VC.Id} >
+                        <div key={VC.Id} class="thumbnail-list">
+                            <a onclick={onVideoitemSelection}>
+                            <img class="thumb-img" src="https://imsindia--imssandbox--c.documentforce.com/file-asset/imslogobgsmall?v=1&width=128&height=128" />
+                            <div class="thumb-title">
+                                <h4>{VC.label}</h4>
+                                <p> {VC.Description} </p>
+                            </div>
+                            </a>
+                        </div>
+                        <!-- <lightning-accordion-section name={VC.name} label={VC.label} key={VC.Id}>
+                            <lightning-layout multiple-rows="true">
+                                <lightning-layout-item class="slds-p-around_small" size="10">
+                                    <p> {VC.Description} </p>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </lightning-accordion-section> -->
+                    </template>
+                </lightning-accordion>
+            </lightning-tab>
+            <lightning-tab label="Presentation">
+                <lightning-accordion active-section-name="A"  class="thumbnail">
+                    <template if:true={PdfContent} for:each={PdfContent} for:item="PC" for:index="index" key={PC.Id}>
+                        <div key={PC.Id} class="thumbnail-list">
+                            <a onclick={onPPTitemSelection}>
+                            <img class="thumb-img" src="https://imsindia--imssandbox--c.documentforce.com/file-asset/imslogobgsmall?v=1&width=128&height=128" />
+                            <div class="thumb-title">
+                                <h4>{PC.label}</h4>
+                                <p> {PC.Description} </p>
+                            </div>
+                            </a>
+                        </div>
+                        <!-- <lightning-accordion-section name={PC.label} label={PC.label} key={PC.Id}>
+                            <lightning-layout multiple-rows="true">
+                                <lightning-layout-item class="slds-p-around_small" size="10">
+                                    <p> {PC.Description} </p>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </lightning-accordion-section> -->
+                    </template>
+                </lightning-accordion>
+            </lightning-tab>
+        </lightning-tabset>
+    </lightning-card>
+</template>

@@ -1,0 +1,10 @@
+.slds-box{
+    padding: 5px !important;
+}
+.box-wrapper{
+    height : 412px !important;
+    overflow: scroll !important;
+}
+.box-wrapper::-webkit-scrollbar {
+    display: none !important;
+}

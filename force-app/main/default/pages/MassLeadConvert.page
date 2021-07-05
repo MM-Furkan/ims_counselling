@@ -1,0 +1,286 @@
+<apex:page controller="MassLeadConvert" sidebar="false" showHeader="false">
+    
+    <html>
+        <apex:slds />
+        
+        <head>
+        <apex:includescript value="//code.jquery.com/jquery-3.3.1.js" / >
+            <apex:includescript value="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" />
+            <apex:stylesheet value="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+            
+            <script>
+            $(document).ready(function() {                    
+                // Setup - add a text input to each footer cell
+                $('#example tfoot th').each( function () {
+                    
+                    
+                    var title = $(this).text();
+                    $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+                } );
+                
+                // DataTable
+                var table = $('#example').DataTable({ "paging":   true,
+                                                    // "lengthMenu": [[10, 25, 50, -1]],
+                                                    "lengthMenu": [ 10, 25, 50, 100 ], 
+                                                     // Set the default no. of rows to display
+                                                      "pageLength": 10,
+                                                     "scrollY":  "370px",
+                                                     "scrollCollapse": true,
+                                                     'render': function (data, type, full, meta){
+                                                            return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
+                                                        }
+                                                    });
+                
+                // Apply the search
+                table.columns().every( function () {
+                    var that = this;
+                    // $('#example tfoot tr').appendTo('#example thead');
+                    
+                    $( 'input', this.footer() ).on( 'keyup change', function () {
+                        console.log('this-->',this);
+                        console.log('that-->',that.search());
+                        console.log('that-->',that);
+                        if ( that.search() !== this.value ) {
+                            that
+                            .search( this.value )
+                            .draw();
+                        }
+                    } );
+                } );
+                
+                // Handle click on "Select all" control
+                $('#example-select-all').on('click', function(){
+                   // Get all rows with search applied
+                   var rows = table.rows({ 'search': 'applied' }).nodes();
+                   // Check/uncheck checkboxes for all rows in the table
+                   $('input[type="checkbox"]', rows).prop('checked', this.checked);
+                });
+            });
+            </script>
+            
+            <script type="text/javascript">
+                function selectAllCheckboxes(obj,receivedInputID){
+                    var inputCheckBox = document.getElementsByTagName("input");                  
+                    for(var i=0; i<inputCheckBox.length; i++){          
+                        if(inputCheckBox[i].id.indexOf(receivedInputID)!=-1){                                     
+                            inputCheckBox[i].checked = obj.checked;
+                        }
+                    }
+                }
+                
+                function openPage(){
+                    console.log('OpenPage call');
+                    var $j = jQuery.noConflict();
+                    $j(document).ready(function() {
+                        $j('#example tfoot th').each( function () {
+                            var title = $j(this).text();
+                            "bStateSave": true;
+                            $j(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+                        } );
+                    
+                    
+                    // DataTable
+                    var table = $j('#example').DataTable({ "paging":   true,
+                            "scrollY":  "370px",
+                            "scrollCollapse": true,
+                            "bStateSave": true,
+                            'render': function (data, type, full, meta){
+                                return '<input type="checkbox" name="id[]" value="' + $j('<div/>').text(data).html() + '">';
+                            }
+                    });
+                    // Apply the search
+                    table.columns().every( function () {
+                        var that = this;
+                        // $('#example tfoot tr').appendTo('#example thead');
+                    
+                        $j( 'input', this.footer() ).on( 'keyup change', function () {
+                            console.log('this-->',this);
+                            console.log('that-->',that.search());
+                            console.log('that-->',that);
+                            if ( that.search() !== this.value ) {
+                                that
+                                .search( this.value )
+                                .draw();
+                            }
+                        } );
+                    } );
+                        // Handle click on "Select all" control
+                    $j('#example-select-all').on('click', function(){
+                        // Get all rows with search applied
+                        var rows = table.rows({ 'search': 'applied' }).nodes();
+                        // Check/uncheck checkboxes for all rows in the table
+                        $j('input[type="checkbox"]', rows).prop('checked', this.checked);
+                    });
+                });
+            }
+            </script>
+            
+            <style>
+                tfoot input {
+                width: 100%; 
+                padding: 5px;
+                box-sizing: border-box;
+                }
+                
+            </style>    
+        </head>
+        <body>
+           <apex:form >
+               <apex:pageMessages />
+            <div class="slds-scope slds-m-around_x-small" style="width: 98%;margin:auto">
+                <div class="default">
+                    <table style="width:100%">
+                        <tr>
+                            <td style="width:30%">
+                                <apex:image id="theImage" value="{!$Resource.IMSLogo}" width="90" height="90"/>
+                            </td>
+                            <td style="width:70%">
+                                <p style="font-size:20px;margin: 18px;margin-left: 150px;" class="bold slds-text-title_caps select_title">
+                                   <b> Mass Lead Transfer</b>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <apex:outputPanel >
+                    <div class="slds-scope slds-m-around_x-small" >
+                    <table style="width:100%" class="slds-table slds-table_cell-buffer slds-table--bordered slds-table_col-bordered cell-border">
+                        <tr>
+                            <td style="width:25%;text-align:right"><b>From</b></td>
+                            <td style="width:25%">{!use.Name}
+                                <!--<div class="slds-select_container">-->
+                                <!--    <apex:selectList value="{!selectUserlId1}" multiselect="false" styleClass="slds-select slds-form-element__control" size="1">-->
+                                <!--                    <apex:actionSupport event="onchange" action="{!usermethod}" reRender="fm1" oncomplete="openPage()"/>-->
+                                <!--                    <apex:selectOptions value="{!userlist1}"/>-->
+                                <!--     </apex:selectList>-->
+                                <!--</div>-->
+                            </td> 
+                            <td style="width:25%;text-align:right"><b>To</b></td>
+                            <td style="width:25%">
+                                <div class="slds-select_container">
+                                    <apex:selectList value="{!selectUserlId2}" multiselect="false" styleClass="slds-select slds-form-element__control" size="1">
+                                                    <!--<apex:actionSupport event="onchange" action="{!usermethod}" reRender="fm1"/>-->
+                                                    <apex:selectOptions value="{!userlist2}"/>
+                                     </apex:selectList>
+                                 </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                </apex:outputPanel>
+                <apex:outputPanel id="fm1">
+                <div class="slds-box" style="width: 98%;margin:auto; margin-top:10px">                      
+                    
+                    <p style="text-align:center;font-size:20px">LEAD RECORDS</p>
+                    <!--<apex:outputPanel id="fm2">-->
+                      <table id="example" class="slds-table slds-table_cell-buffer slds-table--bordered slds-table_col-bordered slds-border_right slds-border_left">
+                        <thead>
+                            <tr class="slds-text-title_caps" style="text-align:center">
+                                
+                                <th scope="col" style="background-color : #ADE1EC;width:5%;text-align:left">
+                                    <input type="checkbox" name="select_all" value="1" id="example-select-all" /> Select
+                                </th>
+                                <!--<th scope="col" style="background-color : #ADE1EC;width:5%;text-align:left">-->
+                                    <!--<input type="checkbox" name="select_all" value="1" id="example-select-all" />-->
+                                <!--    <apex:inputCheckbox onclick="selectAllCheckboxes(this,'inputId')"/>-->
+                                <!--    Select-->
+                                <!--</th>-->
+                                <th scope="col" style="background-color : #ADE1EC;width:10%;text-align:left">
+                                    First Name                                   
+                                </th>
+                                <th scope="col" style="background-color : #ADE1EC;width:10%;text-align:left">
+                                    Last Name                                
+                                </th>
+                                <th scope="col" style="background-color : #ADE1EC;width:20%;text-align:left">
+                                    Email                                
+                                </th>
+                                <th scope="col" style="background-color : #ADE1EC;width:20%;text-align:left">
+                                    Mobile Number                          
+                                </th>
+                                <th scope="col" style="background-color : #ADE1EC;width:20%;text-align:left">
+                                    Program                            
+                                </th>
+                                <th scope="col" style="background-color : #ADE1EC;width:40%;text-align:left">
+                                    City                          
+                                </th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            <apex:variable value="{!0}" var="c" />
+                            <apex:repeat value="{!wrlist}" var="pr">
+                                <tr>
+                                    <td role="gridcell">
+                                        <apex:inputCheckbox value="{!pr.chk}" id="inputId"/>
+                                    </td>
+                                    <td role="gridcell">
+                                        <div class="slds-truncate">{!pr.tra.FirstName}</div>
+                                    </td>
+                                    <td role="gridcell">
+                                        <div class="slds-truncate">{!pr.tra.LastName}</div>
+                                    </td>   
+                                    <td role="gridcell">
+                                        <div class="slds-truncate">{!pr.tra.Email}</div>
+                                    </td> 
+                                    <td role="gridcell">
+                                        <div class="slds-truncate">{!pr.tra.MobilePhone}</div>
+                                    </td>   
+                                    <td role="gridcell">
+                                        <div class="slds-truncate">{!pr.tra.Web_To_Lead_Program__c}</div>
+                                    </td> 
+                                    <td role="gridcell">
+                                        <div class="slds-truncate">{!pr.tra.City}</div>
+                                    </td>   
+                                <!--    <td role="gridcell">-->
+                                <!--        <div class="slds-truncate">{!pr.tra.Admission_Month__c}</div>-->
+                                <!--        <div class="slds-truncate">{{wr.tra.Admission_Month__c}}</div>-->
+                                <!--    </td> -->
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                        <tfoot style="display: table-header-group">
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <th style="text-align:center">Program</th>  
+                                <th style="text-align:center">City</th>  
+                                
+                                
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <!--</apex:outputPanel>-->
+                    
+                    <div class="slds-scope" align="center">
+                            <!--<button  class="slds-button slds-button_brand" ng-click="my()">Convert Lead</button>-->
+                            <!--<button class="slds-button slds-button_destructive" ng-click="my('cancel')">Cancel</button>-->
+                        <apex:commandButton action="{!Convert}" value="Convert" styleClass="slds-button slds-button_brand" onclick="window.opener.top.location.reload();"/>
+                        <apex:commandButton action="{!cancel}" value="Cancel" styleClass="slds-button slds-button_destructive"/>
+                    </div>
+                </div>
+                </apex:outputPanel>
+                <!--<div class="slds-truncate">-->
+                <!--    <table class="slds-table slds-table_cell-buffer slds-table--bordered slds-table_col-bordered cell-border" style="width:100%">-->
+                <!--         <tr>-->
+                <!--            <td style="width:0%">Search By City</td>-->
+                <!--            <td style="width:0%">-->
+                <!--                <apex:inputText value="{!cityName}" styleClass="slds-input"/>-->
+                <!--            </td>-->
+                <!--            <td style="width:0%">Search By Program</td>-->
+                <!--            <td style="width:0%">-->
+                <!--                <apex:inputText value="{!ProgramName}" styleClass="slds-input"/>-->
+                <!--            </td>-->
+                <!--        </tr>-->
+                <!--    </table>-->
+                <!--</div>-->
+            </div>
+            
+            
+             </apex:form>
+        </body>
+    </html>
+   
+</apex:page>
